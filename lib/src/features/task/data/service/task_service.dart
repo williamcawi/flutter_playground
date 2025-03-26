@@ -4,7 +4,7 @@ abstract interface class TaskService {
   Future<List<TaskModel>> getTasks();
   Future<List<TaskModel>> createTask({required TaskModel task});
   Future<List<TaskModel>> updateTask({required TaskModel task});
-  Future<List<TaskModel>> deleteTask({required int id});
+  Future<List<TaskModel>> deleteTask({required String id});
 }
 
 class TaskServiceImpl implements TaskService {
@@ -17,7 +17,7 @@ class TaskServiceImpl implements TaskService {
   }
 
   @override
-  Future<List<TaskModel>> deleteTask({required int id}) async {
+  Future<List<TaskModel>> deleteTask({required String id}) async {
     taskList.removeWhere((task) => task.id == id);
     return Future.value(taskList);
   }

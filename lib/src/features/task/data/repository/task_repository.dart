@@ -8,7 +8,7 @@ abstract interface class TaskRepository {
       {required TaskModel task});
   Future<Either<String, List<TaskModel>>> updateTasks(
       {required TaskModel task});
-  Future<Either<String, List<TaskModel>>> deleteTasks({required int id});
+  Future<Either<String, List<TaskModel>>> deleteTasks({required String id});
 }
 
 class TaskRepositoryImpl implements TaskRepository {
@@ -28,7 +28,7 @@ class TaskRepositoryImpl implements TaskRepository {
   }
 
   @override
-  Future<Either<String, List<TaskModel>>> deleteTasks({required int id}) async {
+  Future<Either<String, List<TaskModel>>> deleteTasks({required String id}) async {
     try {
       return Right(await _taskService.deleteTask(id: id));
     } catch (error) {

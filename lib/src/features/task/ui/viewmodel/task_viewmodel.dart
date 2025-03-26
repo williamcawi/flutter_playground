@@ -43,7 +43,7 @@ class TaskViewmodel extends ValueNotifier<TaskState> {
     });
   }
 
-  Future<void> deleteTaskEvent({required int id}) async {
+  Future<void> deleteTaskEvent({required String id}) async {
     value = TaskLoading();
     final result = await _taskRepository.deleteTasks(id: id);
 
